@@ -6,6 +6,7 @@ import requests
 import time
 
 app = Flask(__name__)
+CORS(app)
 
 def status_check(url):
     start_time = time.time()
