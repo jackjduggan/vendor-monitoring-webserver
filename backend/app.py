@@ -13,7 +13,7 @@ def status_check(url):
     return {
         "url": url,
         "statusCode": response.status_code,
-        "duration": (time.time() - start_time),
+        "duration": int((time.time() - start_time)*1000),
         "date": int(time.time()) # as an int?
     }
 
