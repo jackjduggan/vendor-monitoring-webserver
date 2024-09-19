@@ -8,16 +8,34 @@ import time
 app = Flask(__name__)
 
 def status_check(url):
-    pass
+    start_time = time.time()
+    response = requests.get(url)
+    return {
+        "url": url,
+        "statusCode": response.status_code,
+        "duration": (time.time() - start_time),
+        "date": int(time.time()) # as an int?
+    }
 
+@app.route('/v1/amazon-status', methods=['GET'])
 def amazon_status():
-    pass
+    url = "https://www.amazon.com"
+    result = status_check(url)
+    return jsonify(result)
 
-def amazon_status():
-    pass
+@app.route('/v1/google-status', methods=['GET'])
+def google_status():
+    url = "https://www.google.com"
+    result = status_check(url)
+    return jsonify(result)
 
-def amazon_status():
-    pass
+@app.route('/v1/all-status', methods=['GET'])
+def all_status():
+    amazon_url = "https://www.amazon.com"
+    google_url = "https://www.google.com"
+    amazon_result = status_check(amazon_url)
+    google_result = status_check(google_url)
+    return jsonify([amazon_result, google_result])
 
 if __name__ == "__main__":
     app.run()
