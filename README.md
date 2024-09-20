@@ -72,7 +72,7 @@ This solution was was my implementation for a take-home exercise, with the aim o
 
     You should get a message like ` * Running on http://127.0.0.1:5000`
 
-   It's worth testing your new API in a tool like **Postman**, or in the terminal with `curl`.
+   If everything is working correctly, you should get an output like below when testing the API in a tool like **Postman**, or in the terminal with `curl`.
    
    ![image](https://github.com/user-attachments/assets/55c24233-598b-457a-a4f1-f41a6135c833)
 
